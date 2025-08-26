@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Albatross.Testing {
 	public static class Extensions {
@@ -7,6 +6,11 @@ namespace Albatross.Testing {
 			foreach (var item in source) {
 				yield return new object[] { item };
 			}
+		}
+		
+		public static string NormalizeLineEnding(this string text) {
+			if (string.IsNullOrEmpty(text)) return text;
+			return text.Replace("\r\n", "\n");
 		}
 	}
 }
