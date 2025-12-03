@@ -20,8 +20,8 @@ namespace Albatross.Testing {
 		}
 
 		public static void EqualIgnoringLineEndings(this string? expected, string? actual) {
-			var expected = expected.NormalizeLineEnding();
-			var actual = actual.NormalizeLineEnding();
+			expected = expected.NormalizeLineEnding();
+			actual = actual.NormalizeLineEnding();
 			Assert.Equal(expected, actual);
 		}
 	}
