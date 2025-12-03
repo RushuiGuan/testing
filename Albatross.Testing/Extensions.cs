@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Xunit;
 
 namespace Albatross.Testing {
 	public static class Extensions {
@@ -8,9 +9,20 @@ namespace Albatross.Testing {
 			}
 		}
 		
-		public static string NormalizeLineEnding(this string text) {
+		/// <summary>
+		/// Remove carriage return and the trailing line ending
+		/// </summary>
+		/// <param name="text"></param>
+		/// <returns></returns>
+		public static string NormalizeLineEnding(this string? text) {
 			if (string.IsNullOrEmpty(text)) return text;
-			return text.Replace("\r\n", "\n");
+			return text.Replace("\r", "").TrimEnd('\n');
+		}
+
+		public static void EqualIgnoringLineEndings(this string? expected, string? actual) {
+			var expected = expected.NormalizeLineEnding();
+			var actual = actual.NormalizeLineEnding();
+			Assert.Equal(expected, actual);
 		}
 	}
 }
