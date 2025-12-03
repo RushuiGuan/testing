@@ -19,7 +19,7 @@ namespace Albatross.Testing {
 			return text.Replace("\r", "").TrimEnd('\n');
 		}
 
-		public static void EqualIgnoringLineEndings(this string? expected, string? actual) {
+		public static void EqualsIgnoringLineEndings(this string? expected, string? actual) {
 			expected = expected.NormalizeLineEnding();
 			actual = actual.NormalizeLineEnding();
 			Assert.Equal(expected, actual);
