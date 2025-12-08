@@ -1,7 +1,5 @@
-# Packages
-Albatross.Reqnroll
-Albatross.ReqnrollPlugin
+# packages
 Albatross.Testing
 
-# Tests
+# tests
 Albatross.Testing.UnitTest
